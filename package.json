@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage": "http://eastrd.github.io/sok",
+  "homepage": "http://eastrd.github.io/sok-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
