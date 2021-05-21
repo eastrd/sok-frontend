@@ -186,9 +186,20 @@ class GraphContainer extends React.Component {
                 <Graph 
                     graph={this.state.graph}
                     getNetwork={network => this.setState({ network })}
-                    options={{
+                    physics = {{ 
+                        enabled: true, 
+                        stabilization: { 
+                            iterations: 0
+                        }
+                    }}
+                    options = {{
                         edges: {
-                            color: "#000000"
+                            color: "#000000",
+                            arrows: {
+                                to: { 
+                                    enabled: false,
+                                }
+                            },
                         },
                         height: window.innerHeight * 0.95 + "px",
                     }}
