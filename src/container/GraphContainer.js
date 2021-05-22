@@ -14,8 +14,7 @@ const START_TAGS = {
 };
 
 // Get random key
-const START_TAG = Object.keys(START_TAGS)[Math.floor(Math.random()*Object.keys(START_TAGS).length)];
-const NUM_TAGS = START_TAGS[START_TAG];
+const NUM_TAGS = 5;
 
 class GraphContainer extends React.Component {
     
@@ -34,6 +33,13 @@ class GraphContainer extends React.Component {
             nodes_tag_map: {},
             last_used_id: 0,
         };
+    }
+
+    init() {
+        fetch(SERVER + "random")
+            .then(resp => resp.json())
+            .then(data => data["tag"])
+            .then(tag => this.reloadGraph(tag));
     }
 
     getNumEdges(tag_id, edges) {
@@ -191,8 +197,9 @@ class GraphContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.reloadGraph(START_TAG);
+        this.init();
     }
+
 
 
     render() {
