@@ -2,8 +2,22 @@ import React from 'react';
 import Graph from "react-graph-vis";
 
 const SERVER = "https://api.sok.runtimeerrorstudio.com/";
-const START_TAG = "computer-science";
-const NUM_TAGS = 10;
+
+// A list of random value and their fixed size from array
+const START_TAGS = {
+    "universe": 5, 
+    "computer-science": 3,
+    "brazilian-jiu-jitsu": 10,
+    "game": 10,
+    "dungeons-and-dragons": 10,
+    "rust": 10,
+    "marvel": 10,
+    "philosophy": 5,
+};
+
+// Get random key
+const START_TAG = Object.keys(START_TAGS)[Math.floor(Math.random()*Object.keys(START_TAGS).length)];
+const NUM_TAGS = START_TAGS[START_TAG];
 
 class GraphContainer extends React.Component {
     
@@ -135,20 +149,23 @@ class GraphContainer extends React.Component {
                         let tags = each_domain["ts"];
                         tags.forEach(t => {
                             let tag_name = t["t"];
-                            nodes.push({
-                                id: id,
-                                label: tag_name,
-                                shape: "box",
-                            });
-                            // Add ID to hashmap for search & vice versa
-                            nodes_id_map[id] = tag_name;
-                            nodes_tag_map[tag_name] = id;
-                            // Add edges from source to iter'd tag
-                            edges.push({
-                                from: source_id,
-                                to: id,
-                            });
-                            id ++;
+                            // Don't add duplicated tags
+                            if (!(tag_name in nodes_tag_map)) {
+                                nodes.push({
+                                    id: id,
+                                    label: tag_name,
+                                    shape: "box",
+                                });
+                                // Add ID to hashmap for search & vice versa
+                                nodes_id_map[id] = tag_name;
+                                nodes_tag_map[tag_name] = id;
+                                // Add edges from source to iter'd tag
+                                edges.push({
+                                    from: source_id,
+                                    to: id,
+                                });
+                                id ++;
+                            }
                         });
                     });
                 }
