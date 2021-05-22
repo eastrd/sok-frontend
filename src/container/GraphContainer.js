@@ -7,12 +7,10 @@ const SERVER = "https://api.sok.runtimeerrorstudio.com/";
 const START_TAGS = {
     "universe": 5, 
     "computer-science": 3,
-    "brazilian-jiu-jitsu": 10,
+    "brazilian-jiu-jitsu": 5,
     "game": 10,
-    "dungeons-and-dragons": 10,
-    "rust": 10,
     "marvel": 10,
-    "philosophy": 5,
+    "apocalypse": 7,
 };
 
 // Get random key
