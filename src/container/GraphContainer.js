@@ -3,17 +3,7 @@ import Graph from "react-graph-vis";
 
 const SERVER = "https://api.sok.runtimeerrorstudio.com/";
 
-// A list of random value and their fixed size from array
-const START_TAGS = {
-    "universe": 5, 
-    "computer-science": 3,
-    "brazilian-jiu-jitsu": 5,
-    "game": 10,
-    "marvel": 10,
-    "apocalypse": 7,
-};
-
-// Get random key
+// Number of tags from each domain
 const NUM_TAGS = 5;
 
 class GraphContainer extends React.Component {
