@@ -206,7 +206,7 @@ class GraphContainer extends React.Component {
                     }}
                     options = {{
                         edges: {
-                            color: "#000000",
+                            color: "#B8E9DE",
                             arrows: {
                                 to: { 
                                     enabled: false,
